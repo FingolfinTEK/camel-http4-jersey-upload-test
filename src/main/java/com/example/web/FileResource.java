@@ -10,11 +10,6 @@ import org.glassfish.jersey.media.multipart.FormDataParam;
 
 @Path("/restwb")
 public class FileResource {
-    @GET
-    @Produces("application/json")
-    public String hello() {
-        return "Hello, World!";
-    }
 
     @POST
     @Path("/upload")
