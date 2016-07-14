@@ -5,7 +5,6 @@ import java.io.File;
 import org.apache.camel.Exchange;
 import org.apache.camel.Processor;
 import org.apache.camel.builder.RouteBuilder;
-import org.apache.camel.component.http4.HttpMethods;
 import org.apache.http.entity.mime.HttpMultipartMode;
 import org.apache.http.entity.mime.MultipartEntityBuilder;
 import org.apache.http.entity.mime.content.FileBody;
@@ -24,9 +23,7 @@ public class MyRouteBuilder extends RouteBuilder {
      * Let's configure the Camel routing rules using Java code...
      */
     public void configure() {
-        from("file:src/data?delay=5000&move=.processed")
-            .setHeader(Exchange.CONTENT_TYPE, constant("multipart/form-data"))
-            .setHeader(Exchange.HTTP_METHOD, constant(HttpMethods.POST))
+        from("file:src/data?delay=5000")
             .process(new Processor() {
                 public void process(Exchange exchange) throws Exception {
                     StringBody username =
