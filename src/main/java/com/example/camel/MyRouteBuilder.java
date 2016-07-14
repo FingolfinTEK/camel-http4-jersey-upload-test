@@ -23,7 +23,7 @@ public class MyRouteBuilder extends RouteBuilder {
      * Let's configure the Camel routing rules using Java code...
      */
     public void configure() {
-        from("file:src/data?delay=5000")
+        from("file:src/data?delay=5000&noop=true")
             .process(new Processor() {
                 public void process(Exchange exchange) throws Exception {
                     StringBody username =
